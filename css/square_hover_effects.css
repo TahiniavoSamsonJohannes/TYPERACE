@@ -1,0 +1,42 @@
+.square-hover-effects {
+    position: absolute;
+    z-index: -1;
+}
+
+.square-container, .square-container-moved {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 2px 0;
+}
+.square-container {
+    margin-right: 34px;
+}
+.square-container-moved {
+    margin-left: 34px;
+}
+.square {
+    color: var(--dark-bg-color);
+    min-width: 65px;
+    min-height: 65px;
+    margin: 0 2px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--dark-bg-color);
+    z-index: 1;
+    box-shadow: var(--box-black-shadow);
+}
+
+.glowing-circle {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: blue;
+    box-shadow: 0 0 75px 10px blue;
+    filter: blur(40px);
+    transition: all .3s;
+    z-index: -1;
+}

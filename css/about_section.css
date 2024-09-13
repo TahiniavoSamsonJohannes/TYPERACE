@@ -1,0 +1,11 @@
+.about-section {
+    color: var(--primary-color);
+    padding: 5rem 10rem 2.5rem;
+}
+.about-section h2 {
+    text-transform: uppercase;
+}
+.about-section span {
+    font-weight: bold;
+    color: blue;
+}

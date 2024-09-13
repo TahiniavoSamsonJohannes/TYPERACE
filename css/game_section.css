@@ -1,0 +1,116 @@
+.game-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;/* 
+    background: orangered; */
+}
+
+.game-section #text-to-type {
+    color: var(--primary-color);
+    margin-top: 2rem;
+}
+
+.game-section #user-input {
+    border-radius: .5rem;
+    resize: none;
+    width: 75%;
+    padding: 1rem 1.75rem;
+    font-size: var(--second-text-size);
+    color: var(--primary-color);
+    background: transparent;
+    transition: all .2s;
+}
+
+.game-section #user-input:focus {
+    box-shadow: var(--box-black-shadow);
+    background: var(--bg-color);
+}
+
+.game-section .pre-game-countdown {
+    color: var(--primary-color);
+    font-size: var(--title-text-size);
+    line-height: 1;
+    transition: opacity .5s;
+}
+.game-section .countdown-bar {
+    position: absolute;
+    background: var(--bg-color);
+    box-shadow: var(--box-black-shadow);
+    display: flex;
+    justify-items: flex-start;
+    align-items: center;
+    height: .5rem;
+    width: 75%;
+    border-radius: .15rem;
+    padding: .05rem;
+}
+
+.game-section .countdown-bar span {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: .15rem;
+    background: blue;
+    transition-property: width;
+    transition-timing-function: linear;
+}
+
+.countdown {
+    width: 0 !important;
+}
+
+.game-section .typed-words {
+    position: absolute;
+    top: 48%;
+    right: 25%;
+    color: var(--primary-color);
+    font-size: var(--third-text-size);
+    transition: all .2s;
+}
+
+.game-section .completed-sentences {
+    position: absolute;
+    top: 48%;
+    right: 15%;
+    color: var(--primary-color);
+    font-size: var(--third-text-size);
+    transition: all .2s;
+}
+
+
+/* GAME OVER SECTION AND CONGRATULATIONS SECTION */
+.game-over-section, .congratulation-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 7.5rem;
+    font-size: var(--subtitle-text-size);
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    font-weight: bold;
+}
+
+.congratulation-section button, .game-over-section button {
+    margin-top: 2rem;
+    padding: .8rem 2.5rem;
+    border-radius: .25rem;
+    color: var(--primary-color);
+    font-size: var(--second-text-size);
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: var(--box-light-shadow);
+    background: var(--bg-color);
+    transition: all .2s;
+}
+
+.congratulation-section button:hover, .game-over-section button:hover {
+    transform: scale(1.01);
+}
+.congratulation-section button:active, .game-over-section button:active {
+    background: var(--light-bg-color);
+    box-shadow: var(--box-shadow);
+}

@@ -1,0 +1,331 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url(./Poppins-Regular.ttf);
+}
+
+:root {
+    --bg-color: #2b2b2b;
+    --translucent-bg-color: rgba(43, 43, 43, 0.5);
+    --dark-bg-color: #1b1b1b;
+    --light-bg-color: #393939;
+    --primary-color: #fff;
+    --primary-text-size: 1rem;
+    --second-text-size: 1.5rem;
+    --third-text-size: 2rem;
+
+    --title-text-size: 4rem;
+    --subtitle-text-size: 2.5rem;
+    --box-black-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+    --box-white-shadow: 0 0 1rem rgba(255, 255, 255, 0.5);
+    --box-light-shadow: 
+            1px 1px var(--light-bg-color),
+            1px 2px var(--light-bg-color),
+            1px 3px var(--light-bg-color),
+            1px 4px var(--light-bg-color),
+            1px 5px var(--light-bg-color),
+            -1px 1px var(--light-bg-color),
+            -1px 2px var(--light-bg-color),
+            -1px 3px var(--light-bg-color),
+            -1px 4px var(--light-bg-color),
+            -1px 5px var(--light-bg-color);
+    --box-shadow:
+            1px 1px var(--bg-color),
+            1px 2px var(--bg-color),
+            1px 3px var(--bg-color),
+            1px 4px var(--bg-color),
+            1px 5px var(--bg-color),
+            -1px 1px var(--bg-color),
+            -1px 2px var(--bg-color),
+            -1px 3px var(--bg-color),
+            -1px 4px var(--bg-color),
+            -1px 5px var(--bg-color);
+    --box-dark-shadow:
+            1px 1px var(--dark-bg-color),
+            1px 2px var(--dark-bg-color),
+            1px 3px var(--dark-bg-color),
+            1px 4px var(--dark-bg-color),
+            1px 5px var(--dark-bg-color),
+            -1px 1px var(--dark-bg-color),
+            -1px 2px var(--dark-bg-color),
+            -1px 3px var(--dark-bg-color),
+            -1px 4px var(--dark-bg-color),
+            -1px 5px var(--dark-bg-color);
+    --border-radius: .25rem;
+    --letter-spacing: .1rem;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+    list-style-type: none;
+}
+body {
+    display: grid;
+    place-items: center;
+    text-align: center; /* var(--dark-bg-color) */
+    background-color: var(--bg-color);
+    user-select: none; /* Prevent user selection */
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+section {
+    position: relative;
+    padding: 5rem 1rem 2.5rem;
+    height: 602px;
+    width: 100%;
+    overflow: hidden;
+    transition: opacity .5s;
+}
+
+.home-section {
+    display: flex block;
+    flex-direction: column;
+    align-items: center;/* 
+    background: green; */
+}
+.hide {
+    display: none !important;
+}
+.fadeout {
+    opacity: 0 !important;
+}
+
+.home-section .title {
+    font-size: var(--title-text-size);
+    letter-spacing: .3rem;
+    text-transform: uppercase;
+    line-height: 1;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+.home-section .title span {
+    display: inline-flex;
+    height: fit-content;
+    transition: all .3s;
+    cursor: pointer;
+    border-bottom: 1px solid var(--primary-color);
+}
+.home-section .title span:hover {
+    text-shadow: 0 0 .2rem var(--primary-color);
+
+}
+.home-section .title i {
+    transition: all .1s;
+    cursor: pointer;
+}
+.home-section .title i:hover {
+    text-shadow: 0 0 .1rem var(--primary-color);
+}
+.home-section .title i:active {
+    transform: scale(0.95);
+}
+.home-section .subtitle {
+    max-width: 60rem;
+    min-height: 2.5rem;
+    font-family: sans-serif;
+    white-space: normal;
+    margin-top: 2rem;
+    border-right: .1rem solid white;
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing);
+    font-weight: 700;
+    font-size: var(--subtitle-text-size);
+    line-height: 1;
+    color: var(--primary-color);
+    animation: blink 1s steps(1, jump-end) infinite;
+}
+
+@keyframes blink {
+    50%{
+        border-color: transparent;
+    }
+}
+
+
+.pause {
+    animation-play-state: paused !important;
+}
+
+.play {
+    position: absolute;
+    font-size: var(--subtitle-text-size);
+    color: var(--primary-color);
+    background: none;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    font-weight: bolder;
+    margin-top: 18.5rem;
+    padding: .8rem 2.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    background: var(--bg-color);
+    transition: transform .1s;
+    box-shadow: var(--box-light-shadow);
+}
+.play:hover {
+    transform: scale(1.01);
+}
+.play:active {
+    background: var(--light-bg-color);
+    box-shadow: var(--box-shadow);
+}
+h3 {
+    font-size: var(--subtitle-text-size);
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
+    width: fit-content;
+    line-height: 1;
+    align-self: center;
+    margin-bottom: 1rem;
+}
+
+.settings {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: .5rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+    font-size: var(--second-text-size);
+    line-height: 1;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all .1s;
+    z-index: 100;
+}
+
+.settings:active {
+    transform: scale(0.95);
+}
+
+
+.settings-options {
+    position: absolute;
+    bottom: 5%;
+    right: 4%;
+    padding: .2rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: var(--primary-color);
+    line-height: 1;
+    box-shadow: none;
+    letter-spacing: var(--letter-spacing);
+    font-size: var(--primary-text-size);
+}
+
+.settings-options > div {
+    padding: .6rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin: .2rem 0;
+    border-radius: var(--border-radius);
+    background: var(--bg-color);
+    box-shadow: var(--box-light-shadow);
+}
+.settings-options > div:active {
+    box-shadow: var(--box-shadow);
+    background: var(--light-bg-color);
+}
+
+
+.settings-options > div:hover {
+    transform: scale(1.01);
+}
+
+.settings-options .language-option .switch-language {
+    position: relative;
+    height: 1.2rem;
+    width: 3rem;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background: var(--dark-bg-color);
+    margin-left: .2rem;
+    cursor: pointer;
+    transition: all .3s;
+    
+}
+
+.settings-options .language-option .switch-language .switch {
+    position: relative;
+    width: 4.3rem;
+    height: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    transform: translateX(-1.8rem);
+    transition: all .05s;
+
+}
+
+.settings-options .language-option .switch-language .switch::before,
+.settings-options .language-option .switch-language .switch::after {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    padding: .3rem 0;
+    z-index: 0;
+}
+.settings-options .language-option .switch-language .switch::before {
+    content: 'EN';
+    justify-content: flex-start;
+    color: var(--primary-color);
+    background: var(--dark-bg-color);
+    left: 0;
+}
+.settings-options .language-option .switch-language .switch::after {
+    content: 'FR';
+    justify-content: flex-end;
+    color: var(--primary-color);
+    background: var(--dark-bg-color);
+    right: 0;
+}
+
+.settings-options .language-option .switch-language .switch .switch-square {
+    height: 1.2rem;
+    min-width: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: .1rem;
+    text-transform: uppercase;
+    color: var(--dark-bg-color);
+    font-size: calc(var(--primary-text-size)*0.85);
+    background: var(--primary-color);
+    transition: all .1s;
+    z-index: 1;
+}
+
+
+
+.lang-fr {
+    transform: translateX(0.5rem) !important;
+}
+
+.settings-options .info-option {
+    cursor: pointer;
+}
+
+.settings-options .info-option i {
+    margin-right: .25rem;
+}
+

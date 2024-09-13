@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TYPERACE</title>
+
+    <!-- Cascading Stylesheet -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Boxincons -->
+    <link rel="stylesheet" href="./boxicons/css/boxicons.min.css">
+    <link rel="icon" href="./boxicons/svg/solid/bxs-keyboard.svg">
+</head>
+<body>
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="back fadeout clickable"><i class='bx bx-arrow-back'></i></div>
+        <ul>
+            <li class="back-home clickable"><i class="bx bx-home-alt-2"></i></li>
+            <li class="trophy clickable"><i class="bx bx-trophy"></i></li>
+        </ul>
+    </nav>
+    
+
+    <!-- HOME SECTION 1 -->
+    <section class="home-section hide">
+        <h1 class="title"><i class="bx bxs-keyboard"></i><span>TYPERACE</span></h1>
+        <p class="subtitle"></p>
+
+        <button class="play clickable">
+            <span class="hide" data-lang="en">Play</span>
+            <span class="hide" data-lang="fr">Jouer</span>
+        </button>
+    </section>
+
+    <!-- CATEGORY CHOICE SECTION 2 -->
+    <section class="category-choice-section hide">
+        <h2>
+            <span class="hide" data-lang="en">Choose a category</span>
+            <span class="hide" data-lang="fr">Choisissez une catégorie</span>
+        </h2>
+        <i class="bx bx-chevron-left"></i>
+        <div></div>
+        <i class="bx bx-chevron-right clickable"></i>
+    </section>
+
+    <!-- topic CHOICE SECTION 3 -->
+    <section class="topic-choice-section hide">
+        <h2>
+            <span class="hide" data-lang="en">Choose a topic</span>
+            <span class="hide" data-lang="fr">Choisissez un sujet</span>
+        </h2>
+        <i class="bx bx-chevron-left"></i>
+        <div class="container"></div>
+        <i class="bx bx-chevron-right clickable"></i>
+    </section>
+
+    <!-- GAME SECTION 4 -->
+    <section class="game-section hide">
+        <div class="countdown-bar"><span></span></div>
+        <div id="text-to-type"></div>
+        <div class="pre-game-countdown"></div>
+        <div class="typed-words fadeout"></div>
+        <div class="completed-sentences fadeout"></div>
+        <textarea cols="100" rows="5" id="user-input" spellcheck="false" placeholder="Get ready to type..."></textarea>
+    </section>
+
+
+    <!-- GAME OVER SECTION 5 -->
+    <section class="game-over-section hide">
+    <p>
+        <span class="hide" data-lang="en">Game over !</span>
+        <span class="hide" data-lang="fr">Temps écoulé !</span>
+    </p>
+    <button class="replay clickable">
+        <span class="hide" data-lang="en">Try again</span>
+        <span class="hide" data-lang="fr">Réessayer</span>
+    </button>
+    <button class="back-to-topic clickable">
+        <span class="hide" data-lang="en">Back to topic</span>
+        <span class="hide" data-lang="fr">Retour au sujet</span>
+    </button>
+    </section>
+
+    <!-- CONGRATULATIONS SECTION 6 -->
+    <section class="congratulation-section hide">
+        <p>
+            <span class="hide" data-lang="en">Congratulations !</span>
+            <span class="hide" data-lang="fr">Félicitations !</span>
+        </p>
+        <button class="replay clickable">
+            <span class="hide" data-lang="en">Replay</span>
+            <span class="hide" data-lang="fr">Rejouer</span>
+        </button>
+        <button class="back-to-topic clickable">
+            <span class="hide" data-lang="en">Back to topic</span>
+            <span class="hide" data-lang="fr">Retour au sujet</span>
+        </button>
+    </section>
+
+    <!-- ABOUT SECTION 7 -->
+     <section class="about-section hide">
+     </section>
+
+
+    <div class="settings clickable"><i class="bx bxs-cog"></i></div>
+    <div class="settings-options hide">
+        <div class="language-option clickable">
+            Language
+            <div class="switch-language clickable">
+                <div class="switch">
+                    <div class="switch-square"></div>
+                </div>
+            </div>
+        </div>
+        <div class="info-option clickable"><i class="bx bx-info-circle"></i>About</div>
+    </div>
+
+    <div class="glowing-circle"></div>
+
+    <div class="square-hover-effects">
+        <div class="square-container">
+            <div class="square">A</div>
+            <div class="square">Z</div>
+            <div class="square">E</div>
+            <div class="square">R</div>
+            <div class="square">T</div>
+            <div class="square">Y</div>
+            <div class="square">U</div>
+            <div class="square">I</div>
+            <div class="square">O</div>
+            <div class="square">P</div>
+            <div class="square">[</div>
+            <div class="square">]</div>
+            <div class="square">|</div>
+            <div class="square">Q</div>
+            <div class="square">S</div>
+            <div class="square">D</div>
+            <div class="square">F</div>
+            <div class="square">G</div>
+            <div class="square">H</div>
+            <div class="square">J</div>
+        </div>
+        <div class="square-container-moved">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
+        <div class="square-container">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
+        <div class="square-container-moved">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
+        <div class="square-container">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
+        <div class="square-container-moved">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
+        <div class="square-container">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
+        <div class="square-container-moved">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
+        <div class="square-container">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
+        <div class="square-container-moved">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
+        <div class="square-container">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
+        <div class="square-container-moved">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
+        <div class="square-container">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
+        <div class="square-container-moved">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
+    </div>
+
+
+
+    <!-- JavaScript -->
+    <script src="./js/home_section.js"></script>
+    <script src="./js/navbar.js"></script>
+    <script src="./js/square_hover_effects.js"></script>
+    <script src="./db/database.js"></script>
+    <script src="./js/category_choice_section.js"></script>
+    <script src="./js/topic_choice_section.js"></script>
+    <script src="./js/game_section.js"></script>
+    <script src="./js/sections.js"></script>
+</body>
+</html>

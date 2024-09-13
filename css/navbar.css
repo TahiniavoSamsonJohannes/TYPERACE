@@ -1,0 +1,42 @@
+.navbar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 100;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--primary-color);
+    font-size: var(--second-text-size);
+    line-height: 1;
+}
+
+.navbar > ul {
+    display: inherit;
+    align-items: center;
+}
+
+.navbar > ul li, 
+.navbar .back {
+    margin: .5rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.navbar > ul li:hover {
+    background: var(--primary-color);
+    color: var(--bg-color);
+}
+.navbar > ul li:active {
+    transform: scale(0.95);
+}
+.navbar .back:active {
+    background: var(--dark-bg-color);
+}
