@@ -62,6 +62,16 @@
         <div class="pre-game-countdown"></div>
         <div class="typed-words fadeout"></div>
         <div class="completed-sentences fadeout"></div>
+        <div class="mobile-keyboard-panel" aria-label="Virtual keyboard">
+            <div class="keyboard-toolbar">
+                <div class="keyboard-layout-switch">
+                    <button type="button" class="layout-btn active" data-layout="azerty">AZERTY</button>
+                    <button type="button" class="layout-btn" data-layout="qwerty">QWERTY</button>
+                </div>
+                <button type="button" class="layout-btn caps-btn" data-caps="false">abc</button>
+            </div>
+            <div class="keyboard-keys"></div>
+        </div>
         <textarea cols="100" rows="5" id="user-input" spellcheck="false" placeholder="Get ready to type..."></textarea>
     </section>
 
@@ -106,14 +116,14 @@
     <div class="settings clickable"><i class="bx bxs-cog"></i></div>
     <div class="settings-options hide">
         <div class="language-option clickable">
-            Language
+            <span class="settings-label" data-lang-key="language">Language</span>
             <div class="switch-language clickable">
                 <div class="switch">
                     <div class="switch-square"></div>
                 </div>
             </div>
         </div>
-        <div class="info-option clickable"><i class="bx bx-info-circle"></i>About</div>
+        <div class="info-option clickable"><i class="bx bx-info-circle"></i><span class="settings-label" data-lang-key="about">About</span></div>
     </div>
 
     <div class="glowing-circle"></div>

@@ -75,7 +75,7 @@
 
 .topic-choice-section > .container > .topic > i {
     margin-top: 15px;
-    font-size: var(--title-text-size);
+    font-size: calc(var(--title-text-size) + 1rem);
     color: transparent;
     transition: all .2s;/* 
     text-shadow: var(--box-light-shadow); */

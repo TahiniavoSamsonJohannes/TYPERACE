@@ -1,9 +1,21 @@
 .about-section {
     color: var(--primary-color);
-    padding: 5rem 10rem 2.5rem;
+    padding: 5rem 2rem 2.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
 }
 .about-section h2 {
     text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+.about-section p,
+.about-section div {
+    max-width: 48rem;
+    line-height: 1.7;
 }
 .about-section span {
     font-weight: bold;

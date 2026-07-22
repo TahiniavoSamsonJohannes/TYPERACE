@@ -45,6 +45,8 @@ if(lang_en){
 
 
 
+updateSettingsLabels();
+
 backHome.onclick = () => {
     sections.goToSection(homeSection);
 }

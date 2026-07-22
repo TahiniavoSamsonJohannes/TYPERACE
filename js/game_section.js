@@ -6,6 +6,93 @@ gameoverSound = new Audio('./audio/gameover-sound.mp3');
 beepSound = new Audio('./audio/beep-sound.mp3');
 endbeepSound = new Audio('./audio/endbeep-sound.mp3');
 
+const virtualKeyboard = {
+    container: document.querySelector('.mobile-keyboard-panel'),
+    keysContainer: document.querySelector('.mobile-keyboard-panel .keyboard-keys'),
+    capsButton: document.querySelector('.caps-btn'),
+    activeLayout: 'azerty',
+    isCaps: false,
+    layouts: {
+        azerty: [['a','z','e','r','t','y','u','i','o','p'], ['q','s','d','f','g','h','j','k','l','m'], ['w','x','c','v','b','n'], ['.', ',', ';', ':', '!', '?', '(', ')', '%', 'space', 'backspace']],
+        qwerty: [['q','w','e','r','t','y','u','i','o','p'], ['a','s','d','f','g','h','j','k','l'], ['z','x','c','v','b','n','m'], ['.', ',', ';', ':', '!', '?', '(', ')', '%', 'space', 'backspace']]
+    },
+    init: function(){
+        if(!this.container || !this.keysContainer){ return; }
+        this.render();
+        this.container.querySelectorAll('.layout-btn').forEach(button => {
+            button.onclick = () => {
+                if(button.classList.contains('caps-btn')){
+                    this.isCaps = !this.isCaps;
+                    this.capsButton.textContent = this.isCaps ? 'ABC' : 'abc';
+                    this.render();
+                    return;
+                }
+                this.activeLayout = button.dataset.layout;
+                this.container.querySelectorAll('.layout-btn').forEach(btn => btn.classList.toggle('active', btn === button));
+                this.render();
+            }
+        });
+        window.addEventListener('resize', () => this.syncVisibility());
+        this.syncVisibility();
+    },
+    syncVisibility: function(){
+        if(!this.container){ return; }
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        this.container.classList.toggle('is-visible', isMobile);
+    },
+    render: function(){
+        if(!this.keysContainer){ return; }
+        this.keysContainer.innerHTML = '';
+        const rows = this.layouts[this.activeLayout] || this.layouts.azerty;
+        rows.forEach(row => {
+            const rowElement = document.createElement('div');
+            rowElement.className = 'keyboard-row';
+            row.forEach(key => {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.dataset.key = key;
+                button.className = 'keyboard-key';
+                if(key === 'space'){
+                    button.textContent = (lang_en) ? 'Space' : 'Espace';
+                }else if(key === 'backspace'){
+                    button.textContent = '⌫';
+                }else{
+                    button.textContent = this.isCaps ? key.toUpperCase() : key;
+                }
+                button.onclick = () => this.insertKey(key);
+                rowElement.appendChild(button);
+            });
+            this.keysContainer.appendChild(rowElement);
+        });
+    },
+    insertKey: function(key){
+        const input = document.querySelector('#user-input');
+        if(!input){ return; }
+        input.focus();
+        const start = input.selectionStart;
+        const end = input.selectionEnd;
+        let valueToInsert = key;
+
+        if(key === 'backspace'){
+            if(start !== end){
+                input.setRangeText('', start, end, 'end');
+            }else if(start > 0){
+                input.setRangeText('', start - 1, start, 'end');
+            }
+        }else if(key === 'space'){
+            valueToInsert = ' ';
+            input.setRangeText(valueToInsert, start, end, 'end');
+        }else{
+            if(this.isCaps){
+                valueToInsert = key.toUpperCase();
+            }
+            input.setRangeText(valueToInsert, start, end, 'end');
+        }
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+};
+
+virtualKeyboard.init();
 
 const game = {
     d:700, // delay (milliseconds)

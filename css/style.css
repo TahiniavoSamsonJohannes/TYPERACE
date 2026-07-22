@@ -5,3 +5,249 @@
 @import url('./topic_choice_section.css');
 @import url('./game_section.css');
 @import url('./about_section.css');
+
+body {
+    display: block;
+    text-align: center;
+    background-color: var(--bg-color);
+    user-select: none;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100vw;
+}
+
+section {
+    position: relative;
+    padding: 5rem 1rem 6rem;
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100%;
+    overflow: hidden;
+    transition: opacity .5s;
+}
+
+.play {
+    position: relative;
+    font-size: var(--subtitle-text-size);
+    color: var(--primary-color);
+    background: none;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    font-weight: bolder;
+    margin-top: 2rem;
+    padding: .8rem 2.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    background: var(--bg-color);
+    transition: transform .1s;
+    box-shadow: var(--box-light-shadow);
+}
+
+.settings-options .language-option .switch-language {
+    position: relative;
+    height: 1.2rem;
+    width: 3rem;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background: var(--dark-bg-color);
+    margin-left: .5rem;
+}
+
+.mobile-keyboard-panel {
+    display: none;
+    width: min(92vw, 40rem);
+    margin-top: 1rem;
+    padding: .75rem;
+    border-radius: .75rem;
+    background: var(--bg-color);
+    box-shadow: var(--box-light-shadow);
+    order: 3;
+}
+
+.mobile-keyboard-panel.is-visible {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.mobile-keyboard-panel .keyboard-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem;
+    color: var(--primary-color);
+}
+
+.mobile-keyboard-panel .keyboard-layout-switch {
+    display: flex;
+    gap: .35rem;
+}
+
+.mobile-keyboard-panel .layout-btn {
+    padding: .35rem .6rem;
+    border-radius: 999px;
+    background: var(--dark-bg-color);
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: .8rem;
+}
+
+.mobile-keyboard-panel .layout-btn.active {
+    background: var(--primary-color);
+    color: var(--bg-color);
+}
+
+.mobile-keyboard-panel .keyboard-keys {
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+}
+
+.mobile-keyboard-panel .keyboard-row {
+    display: grid;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    gap: .35rem;
+}
+
+.mobile-keyboard-panel .keyboard-key {
+    padding: .5rem 0;
+    border-radius: .45rem;
+    background: var(--light-bg-color);
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: .95rem;
+    box-shadow: var(--box-dark-shadow);
+}
+
+.mobile-keyboard-panel .keyboard-key:active {
+    transform: scale(0.97);
+    background: var(--primary-color);
+    color: var(--bg-color);
+}
+
+.mobile-keyboard-panel .keyboard-row button[data-key="space"] {
+    grid-column: span 4;
+}
+
+.mobile-keyboard-panel .keyboard-row button[data-key="backspace"] {
+    grid-column: span 2;
+    background: var(--dark-bg-color);
+}
+
+@media (max-width: 900px) {
+    :root {
+        --title-text-size: 3rem;
+        --subtitle-text-size: 1.8rem;
+        --third-text-size: 1.6rem;
+    }
+
+    .settings-options {
+        right: 1rem;
+        bottom: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        overflow: hidden;
+    }
+
+    .home-section {
+        justify-content: center;
+    }
+
+    .home-section .title {
+        flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+
+    .home-section .subtitle {
+        font-size: 1.35rem;
+        max-width: 90%;
+        min-height: 2rem;
+    }
+
+    .category-choice-section > div,
+    .topic-choice-section > .container {
+        width: min(92vw, 32rem);
+        height: 22rem;
+    }
+
+    .category-choice-section h2,
+    .topic-choice-section h2 {
+        font-size: 1.35rem;
+        top: 4.5rem;
+    }
+
+    .game-section {
+        justify-content: flex-start;
+        gap: .75rem;
+    }
+
+    .game-section #user-input {
+        width: min(92vw, 100%);
+        font-size: 1rem;
+        min-height: 5rem;
+        order: 1;
+    }
+
+    .topic-choice-section > .container > .topic > i {
+        display: inline-flex;
+        margin-top: 1rem;
+        font-size: 2.2rem;
+    }
+
+    .game-section #text-to-type {
+        order: 2;
+    }
+
+    .mobile-keyboard-panel {
+        order: 3;
+    }
+
+    .game-section .countdown-bar {
+        width: min(92vw, 100%);
+    }
+
+    .game-section .typed-words,
+    .game-section .completed-sentences {
+        position: static;
+        margin-top: .35rem;
+        font-size: 1rem;
+    }
+
+    .settings-options > div {
+        padding: .65rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-section .title {
+        font-size: 2.4rem;
+    }
+
+    .play {
+        font-size: 1.35rem;
+        padding: .7rem 1.7rem;
+    }
+
+    .category-choice-section > div > .category,
+    .topic-choice-section > .container > .topic {
+        width: 96%;
+        padding: .8rem;
+    }
+
+    .mobile-keyboard-panel .keyboard-row {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .mobile-keyboard-panel .keyboard-row button[data-key="space"] {
+        grid-column: span 3;
+    }
+
+    .mobile-keyboard-panel .keyboard-row button[data-key="backspace"] {
+        grid-column: span 3;
+    }
+}

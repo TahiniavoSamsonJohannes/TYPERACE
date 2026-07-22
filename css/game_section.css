@@ -31,6 +31,7 @@
     color: var(--primary-color);
     font-size: var(--title-text-size);
     line-height: 1;
+    margin-top: 0.25rem;
     transition: opacity .5s;
 }
 .game-section .countdown-bar {

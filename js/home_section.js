@@ -91,6 +91,24 @@ const settings_options = document.querySelector('.settings-options');
 const language_option = document.querySelector('.language-option');
 const switch_language = document.querySelector('.settings-options .language-option .switch-language');
 const info = document.querySelector('.settings-options .info-option');
+
+function updateSettingsLabels(){
+    const labels = document.querySelectorAll('.settings-label');
+    labels.forEach(label => {
+        const key = label.dataset.langKey;
+        if(key === 'language'){
+            label.textContent = (lang_en) ? 'Language' : 'Langue';
+        }else if(key === 'about'){
+            label.textContent = (lang_en) ? 'About' : 'À propos';
+        }
+    });
+
+    const keyboardLabel = document.querySelector('.keyboard-label');
+    if(keyboardLabel){
+        keyboardLabel.textContent = (lang_en) ? 'Keyboard' : 'Clavier';
+    }
+}
+
 settings.onclick = (e) => {
     e.stopPropagation();
     settings_options.classList.toggle('hide');
@@ -112,6 +130,8 @@ switch_language.onclick = (e) => {
     }else if(localStorage.getItem('lang_en') === 'false'){
         localStorage.setItem('lang_en','true');
     }
+    lang_en = localStorage.getItem('lang_en') === 'true';
+    updateSettingsLabels();
     setTimeout(() => {location.reload();},200);
 }
 
@@ -123,9 +143,8 @@ info.onclick = () => {
     sections.goToSection(aboutSection);
 }
 
-window.addEventListener('resize', (e) => {
-    e.preventDefault();
-    console.log('resized');
+window.addEventListener('resize', () => {
+    virtualKeyboard && virtualKeyboard.syncVisibility && virtualKeyboard.syncVisibility();
 });
 
 document.onkeydown = (e) => {
